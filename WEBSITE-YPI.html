@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="YPI Ratu Kalinyamat Jepara - Pendidikan Islami unggul MA, MTs dan Pondok Pesantren">
   <title>YPI. RATU KALINYAMAT - BERANDA</title>
   <style>
     :root{
@@ -71,7 +72,7 @@
     header.scrolled{padding:5px 0;box-shadow:var(--shadow)}
     .nav{display:flex;align-items:center;justify-content:space-between}
     .logo{display:flex;align-items:center;gap:10px;font-weight:700}
-    .logo img{height:50px;width:50px;border-radius:10px;object-fit:cover;animation:glowPulse 3s infinite ease-in-out}
+    .logo img{height:50px;width:50px;border-radius:5px;object-fit:cover;animation:glowPulse 3s infinite ease-in-out}
     .logo span{font-size:18px;color:var(--gold-dark)}
 
     nav a{margin-left:10px;text-decoration:none;color:var(--muted);font-weight:610;font-size:14px;position:relative}
@@ -84,7 +85,7 @@
 
     /* HERO */
     .hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;position:relative;color:#222;
-    background:linear-gradient(rgba(255,255,255,0.78),rgba(255,255,255,0.78)),url("GEDUNG.png");
+    background:linear-gradient(rgba(255,255,255,0.78),rgba(255,255,255,0.78)),url("gedung.png");
     background-size:cover;background-position:center;background-attachment:fixed;}
     .hero-inner{max-width:920px}
     .eyebrow{color:#a07b2f;padding:10px;font-size:30px;font-weight:700;line-height:50px;margin-bottom:20px}
@@ -122,10 +123,47 @@
     .gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px;cursor:pointer;transition:transform .28s}
     .gallery img:hover{transform:scale(1.04)}
 
-    /* CONTACT */
-    .contact-box{background:#fff;padding:22px;border-radius:14px;box-shadow:var(--shadow);max-width:920px;margin:0 auto}
-    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
-    .contact-grid p{color:var(--muted);line-height:1.6}
+    /* CONTACT FIXED BOX */
+    .contact-box{background:#fff;padding:24px;border-radius:16px;box-shadow:var(--shadow);overflow:hidden; 
+  
+    /* PENTING: biar isi tidak keluar */}
+    .contact-grid{display:grid;grid-template-columns: 1fr 380px;gap:20px;align-items:stretch;}
+
+    /* INFO */
+    .contact-info p{margin-bottom:14px;line-height:1.6;color:var(--muted);}
+    .contact-info a{color:var(--gold-dark);text-decoration:none;font-weight:600;}
+    .contact-info a:hover{text-decoration:underline;}
+    
+    /* MAP */
+    .map-wrapper{width:100%;height:100%;border-radius:14px;overflow:hidden;
+    
+    /* biar iframe ngikut kotak */
+    box-shadow:0 10px 25px rgba(0,0,0,.08);}
+    .map-wrapper iframe{width:100%;height:100%;min-height:220px;border:0;}
+
+    /* RESPONSIVE */
+    @media (max-width:900px){
+    .contact-grid{grid-template-columns:1fr;}
+    .map-wrapper iframe{min-height:240px;}}
+
+    /* PERSEMPIT KOTAK KONTAK */
+    .contact-box{
+    max-width:780px;      /* ⬅️ dipersempit (sebelumnya 920px) */
+    margin:0 auto;padding:20px;border-radius:14px;}
+
+    /* GRID KONTAK LEBIH RAMPING */
+    .contact-grid{grid-template-columns: 1fr 350px;
+    
+    /* map lebih kecil */gap:15px;}
+
+    /* MAP TETAP DI DALAM KOTAK */
+    .map-wrapper{border-radius:12px;overflow:hidden;}
+    .map-wrapper iframe{min-height:200px;}
+
+    /* RESPONSIVE HP */
+    @media (max-width:900px){.contact-box{max-width:100%;}
+    .contact-grid{grid-template-columns:1fr;}
+    .map-wrapper iframe{min-height:220px;}}
 
     /* BROSUR BUTTON (NEON GOLD) */
     .btn-neon{background:linear-gradient(90deg,var(--gold),var(--gold-dark));color:#fff;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 10px 30px rgba(201,163,74,0.18);transition:transform .18s,box-shadow .18s}
@@ -150,8 +188,37 @@
 
     /* RESPONSIVE */
     @media (max-width:900px){.contact-grid{grid-template-columns:1fr}.nav{padding:0 12px}.logo span{display:none}.nav a{margin-left:12px}}
-    @media (max-width:768px){body::before{background-size:65%;}}
+    @media (max-width:480px){body::before{background-size:80%;}}
     @media (max-width:768px){.hero{background-attachment:scroll;}}
+
+    /* IKON ISLAMI OUTLINE */
+    .icon.islami{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:rgba(201,163,74,0.12);}
+    .icon.islami svg{width:22px;height:22px;fill:none;stroke:var(--gold-dark);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+
+    /* hover halus islami */
+    .info-item:hover .icon.islami{background:rgba(201,163,74,0.22);box-shadow:0 6px 18px rgba(201,163,74,.25);}
+
+    /* RAPKAN AREA KONTAK */
+    .contact-info{display:flex;flex-direction:column;gap:16px;}
+
+    /* ITEM */
+    .info-item{display:grid;grid-template-columns:40px 1fr; /* ikon & teks sejajar */
+    gap:14px;align-items:flex-start;}
+
+    /* IKON ISLAMI */
+    .icon.islami{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:rgba(201,163,74,0.14);flex-shrink:0;}
+    .icon.islami svg{width:22px;height:22px;fill:none;stroke:var(--gold-dark);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+
+    /* TEKS */
+    .info-item strong{display:block;font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px;}
+    .info-item p{margin:0;font-size:14px;line-height:1.55;color:var(--muted);}
+
+    /* LINK */
+    .info-item a{color:var(--gold-dark);text-decoration:none;font-weight:600;}
+    .info-item a:hover{text-decoration:underline;}
+
+    /* HOVER HALUS */
+    .info-item:hover .icon.islami{background:rgba(201,163,74,0.22);box-shadow:0 6px 18px rgba(201,163,74,.25);}
   </style>
 </head>
 <body>
@@ -167,9 +234,6 @@
       <nav>
         <a href="#home">BERANDA</a>
         <a href="#ppdb">SPMB</a>
-        <a href="#ma">MA</a>
-        <a href="#mts">MTs</a>
-        <a href="#ponpes">PONPES</a>
         <a href="#berita">BERITA</a>
         <a href="#galeri">GALERI</a>
         <a href="#kontak">KONTAK</a>
@@ -325,24 +389,92 @@
       <div class="container">
         <h2>KONTAK KAMI</h2>
         <p class="sub">Hubungi kami untuk informasi pendaftaran, kunjungan, atau kerja sama.</p>
-
         <div class="contact-box">
           <div class="contact-grid">
-            <div>
-              <p><strong>Alamat :</strong> Jl. Mantingan-Bugel KM. 01 RT. 26 / RW. 08 Kec. Tahunan Kab. Jepara Prov. Jawa Tengah</p>
-              <p><strong>Email :</strong> maalanwarmantinganjepara18@gmail.com</p>
-              <p><strong>Telepon :</strong> 0823-1324-5656 (Ust. Nafi')</p>
-              <p><strong>Jam Operasional :</strong> Sabtu-Kamis, 07.00-16.00 WIB</p>
+            <div class="contact-info">
+              <div class="info-item">
+                <span class="icon islami">
+                  <!-- LOCATION -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 21s6-6.2 6-11a6 6 0 1 0-12 0c0 4.8 6 11 6 11z"/>
+                    <circle cx="12" cy="10" r="2.5"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Alamat</strong>
+                  <p>
+                    Jl. Mantingan-Bugel KM. 01 RT. 26 / RW. 08<br>
+                    Kec. Tahunan Kab. Jepara<br>
+                    Prov. Jawa Tengah
+                  </p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="icon islami">
+                  <!-- EMAIL -->
+                  <svg viewBox="0 0 24 24">
+                    <rect x="3" y="6" width="18" height="12" rx="2"/>
+                    <path d="M3 7l9 6 9-6"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Email</strong>
+                  <p>
+                    <a href="mailto:maalanwarmantinganjepara18@gmail.com">
+                      maalanwarmantinganjepara18@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="icon islami">
+                  <!-- WHATSAPP -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M20 12a8 8 0 1 1-14.5 4.7L4 21l4.4-1.5A8 8 0 0 1 20 12z"/>
+                    <path d="M9.5 9.5c.5-1 1.2-.9 1.7-.8.3.1.7.8.7 1.1
+                            0 .4-.3.8-.6 1.1-.2.2-.1.4 0 .6
+                            .5.9 1.5 1.6 2.4 2 .2.1.4.1.6-.1
+                            .3-.3.7-.6 1-.6.3 0 1 .4 1.1.7
+                            .1.5.2 1.2-.8 1.7"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>WhatsApp</strong>
+                  <p>
+                    <a href="https://wa.me/6282313245656" target="_blank">
+                      0823-1324-5656 (Ahmad Nafi', S.Pd.)
+                    </a><br>
+                    <a href="https://wa.me/6285643626833" target="_blank">
+                      0856-4362-6833 (Muh. Hilman Fasya, S.Pd.)
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="icon islami">
+                  <!-- TIME -->
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8"/>
+                    <path d="M12 8v5l3 2"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Jam Operasional</strong>
+                  <p>Sabtu-Kamis, 07.00-16.00 WIB</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7268.449650042258!2d110.66844355797102!3d-6.628239673103921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e711fcbab94d55d%3A0x28ae23fb0058413d!2sMTs%20MA%20Al%20Anwar!5e0!3m2!1sid!2sid!4v1765708656256!5m2!1sid!2sid" width="320px" height="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-wrapper">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7268.449650042258!2d110.66844355797102!3d-6.628239673103921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e711fcbab94d55d%3A0x28ae23fb0058413d!2sMTs%20MA%20Al%20Anwar!5e0!3m2!1sid!2sid!4v1765708656256!5m2!1sid!2sid"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
           </div>
         </div>
-
       </div>
     </section>
-
   </main>
 
   <footer>
@@ -386,45 +518,35 @@
   </script>
 
   <script>
-    document.getElementById("formPendaftaran").addEventListener("submit", function(e){e.preventDefault();
-    const nama = this.nama.value;
-    const nisn = this.nik.value;
-    const asal = this.asal.value;
-    const hp = this.hp.value;
-    const jenjang = this.jenjang.value;
-    const alamat = this.alamat.value;
-    const pesan = `
-    PENDAFTARAN SPMB YPI RATU KALINYAMAT
+  document.getElementById("formPendaftaran").addEventListener("submit", function(e){
+  e.preventDefault();
 
-    Nama: ${nama}
-    NISN: ${nisn}
-    Asal Sekolah: ${asal}
-    No HP: ${hp}
-    Jenjang: ${jenjang}
-    Alamat: ${alamat}`;
+  const nama = this.nama.value;
+  const nisn = this.nik.value;
+  const asal = this.asal.value;
+  const hp = this.hp.value;
+  const jenjang = this.jenjang.value;
+  const alamat = this.alamat.value;
 
-    const nomorWA = "6285643626833"; // ganti jika perlu
-    const url = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(pesan);
+  const pesan =
+  `PENDAFTARAN SPMB YPI RATU KALINYAMAT
 
-    window.open(url, "_blank");alert("✅ Pendaftaran berhasil dikirim melalui WhatsApp");this.reset();});
-  </script>
+  Nama       : ${nama}
+  NISN       : ${nisn}
+  Asal Sekolah: ${asal}
+  Nomor HP.  : ${hp}
+  Jenjang    : ${jenjang}
+  Alamat     : ${alamat}`;
 
-  <script>
-    const form = document.getElementById("formPendaftaran");
+  const nomorWA = "6285643626833"; // ganti jika perlu
+  const url = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(pesan);
 
-    form.addEventListener("submit", function(e){e.preventDefault(); // hentikan reload
+  window.open(url, "_blank");
 
-    // Ambil data (jika nanti mau dikirim ke WA / server)
-    const data = new FormData(form);
+  alert("✅ Pendaftaran berhasil dikirim melalui WhatsApp.\nPetugas akan segera menghubungi Anda.");
 
-    // Notifikasi
-    alert("✅ Pendaftaran berhasil dikirim!\nPetugas akan segera menghubungi Anda.");
-
-    // Reset form
-    form.reset();});
-  </script>
+  this.reset();});
+</script>
 
 </body>
 </html>
-
-
